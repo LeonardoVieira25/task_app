@@ -1,0 +1,56 @@
+.SignIn{
+    width: 400px;
+    padding: 20px;
+    background-color: rgb(169, 169, 230);
+    color: rgb(56, 56, 56);
+    border-radius: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1{
+        margin: 10px;
+    }
+    
+    button{
+        isolation: isolate;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(202, 202, 240);
+        box-shadow: rgba(80, 80, 120, 0.16) 0px 30px 60px -12px inset;
+        cursor: pointer;
+        *{
+            padding: 10px;
+        }
+        img{
+            width: 50px;
+        }
+        p{
+            font-size: 20px;
+            color: rgb(56, 56, 56);
+        }
+    }
+    button::before{
+        z-index: -1;
+        content: '';
+        background-color: rgba(228, 228, 244, 0.384);
+        width: 0%;
+        height: 100%;
+        transform: translateX(-20px);
+        position: absolute;
+        transition: ease-in-out 0.2s;
+    }
+    button:hover::before{
+        width: 110%;
+        
+    }
+}
+
+
