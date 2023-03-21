@@ -1,0 +1,65 @@
+
+.task{
+    cursor: pointer;
+    width: 90%;
+    max-width: 500px;
+    background-color: rgb(169, 169, 230);
+    box-shadow: rgba(29, 29, 55, 0.411) 10px 10px 30px 10px inset;
+    color: rgb(30, 30, 30);
+    padding: 15px;
+    margin: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border: none;
+    border-radius: 30px;
+    h2{
+        color: #07004D;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    *{
+        margin: 0;
+    }
+    .description{
+        background-color: rgb(190, 190, 228);
+        text-align: left;
+        font-size: 20px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: rgba(29, 29, 55, 0.411) 5px 5px 10px 1px inset;
+    }
+    .progress{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        *{
+            margin: 5px;
+        }
+        .progress-bar{
+            background-color: rgba(138, 135, 135, 0.507);
+            box-shadow: rgba(29, 29, 55, 0.411) 5px 5px 10px 5px inset;
+
+            width: 100%;
+            height: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .progress-bar-fill{
+            padding: 0;
+            margin: 0;
+            width: 50%;            
+            height: 30px;
+            background-color: #9000B3;
+            box-shadow: rgba(29, 29, 55, 0.411) 5px 5px 10px 5px inset;
+            position: absolute;
+            left: 0;
+        }
+    }
+}

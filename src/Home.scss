@@ -1,0 +1,15 @@
+.Home{
+    width: 100%;
+    // background-color: red;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .feed{
+        padding: 20px;    
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

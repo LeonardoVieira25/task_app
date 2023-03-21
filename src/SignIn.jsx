@@ -2,7 +2,6 @@ import React from 'react'
 import './SignIn.scss'
 
 import { auth } from "./firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
 
@@ -15,7 +14,7 @@ const googleSignIn = () => {
   return (
     <div className='SignIn'>
         <h1>
-            Faça login para acessar suas tasks
+            Faça login para acessar as coisas
         </h1>
         <button
         onClick={googleSignIn}

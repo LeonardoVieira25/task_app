@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Home from './Home';
 
 function App() {
 
@@ -14,9 +15,12 @@ function App() {
   return (
     <div className="App">
       {user ? (
-        <button onClick={signOut} className="sign-out" type="button">
-          Sign Out
-        </button>
+        <>
+          <button onClick={signOut} className="sign-out" type="button">
+            Sign Out
+          </button>
+          <Home/>
+        </>
       ) : (
         <>
           <h1>Bem vindo</h1>
