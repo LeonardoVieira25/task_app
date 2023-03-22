@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TaskCard from './TaskCard'
-
+import './Feed.scss'
 
 import { db, auth } from "./firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";

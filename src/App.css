@@ -1,9 +1,14 @@
 *{
     font-family: "Google Sans",sans-serif;
     font-weight: 600;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 html{
     background-color: rgb(206, 206, 248);
+    width: 100%;
 }
 .App{
     color: white;

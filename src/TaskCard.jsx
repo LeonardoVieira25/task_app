@@ -17,7 +17,7 @@ export default function TaskCard({ title, description, date0, date1 }) {
     return (
         <button className='task'>
             <h2>{title}</h2>
-            {description != null && description != '' &&
+            {description !== null && description !== '' &&
                 <p className='description'>
                     {description} 
                 </p>

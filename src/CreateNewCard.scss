@@ -1,0 +1,45 @@
+input::-webkit-calendar-picker-indicator{
+    display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder{ 
+    visibility: hidden !important;
+}
+.CreateNewCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    form{
+        padding: 20px;
+        width: 100%;
+        background-color: red;
+        label{
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+
+            margin: 15px 0;
+            input{
+                font-size: 20px;
+                width: 90%;
+                margin: 10px 0;
+                padding: 10px;
+            }
+            .title{
+                height: 40px;
+            }
+            .description{
+                height: 100px;
+                width: 90%;
+                resize: none;
+                padding: 10px;
+                margin: 10px 0;
+                font-size: 20px;
+            }
+            p{
+                font-size: 17px;
+            }
+        }
+    }
+}
