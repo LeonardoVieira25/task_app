@@ -1,19 +1,17 @@
 import React from 'react'
 import './TaskCard.scss'
+import { Timestamp } from 'firebase/firestore';
 
-export default function TaskCard({ title, description, date0, date1 }) {
-    let _date0 = new Date(
-        parseInt(date0.split('/')[2]),
-        parseInt(date0.split('/')[1])-1,
-        parseInt(date0.split('/')[0])-1
-        )
-    let _date1 = new Date(
-        parseInt(date1.split('/')[2]),
-        parseInt(date1.split('/')[1])-1,
-        parseInt(date1.split('/')[0])
-        )
+export default function TaskCard({ title, description, _date0, _date1 }) {
     let curDate = new Date()
-    let ratio = ( Math.round((curDate-_date0)/(1000 * 60 * 60 * 24))/Math.round((_date1-_date0)/(1000 * 60 * 60 * 24)) )
+    let ratio = (Math.round((curDate-_date0)/(1000 * 60 * 60 * 24))   /  (Math.round((_date1-_date0)/(1000 * 60 * 60 * 24))+1) )
+    
+    // console.log("dias restantes do "+ title)
+    // console.log(Math.round( (curDate-_date0)/(1000 * 60 * 60 * 24)))
+    // console.log("/")
+    // console.log(Math.round((_date1-_date0)/(1000 * 60 * 60 * 24)) +1  )
+    // console.log("=")
+    // console.log(ratio)
     return (
         <button className='task'>
             <h2>{title}</h2>
@@ -21,15 +19,15 @@ export default function TaskCard({ title, description, date0, date1 }) {
                 <p className='description'>
                     {description} 
                 </p>
-            }
+            } 
             <div className='progress'>
-                <p>{date0}</p>
+                
                 <span className='progress-bar'>
                     <span className='progress-bar-fill' style={{
                         width: ratio*100+'%'
                     }}></span>
                 </span>
-                <p>{date1}</p>
+<p>{_date0.getDate()} / {_date0.getMonth() + 1} / {_date0.getFullYear()} até {_date1.getDate()} / {_date1.getMonth() + 1} / {_date1.getFullYear()}</p>
             </div>
         </button>
     )
