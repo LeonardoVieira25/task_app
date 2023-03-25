@@ -5,10 +5,15 @@ import CreateNewCard from './CreateNewCard';
 
 
 
-export default function Home() {
+export default function Home( {signOut} ) {
   const [fase,setFase] = useState("feed")
   return ( 
     <div className='Home'>
+      <div className='header'>
+        <button onClick={signOut} className="sign-out" type="button">
+          sair
+        </button>
+      </div>
       {fase == "feed" && 
       <>
         <Feed />  

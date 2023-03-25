@@ -16,10 +16,9 @@ function App() {
     <div className="App">
       {user ? (
         <>
-          <button onClick={signOut} className="sign-out" type="button">
-            Sign Out
-          </button>
-          <Home/>
+          <Home
+          signOut={signOut}
+          />
         </>
       ) : (
         <>

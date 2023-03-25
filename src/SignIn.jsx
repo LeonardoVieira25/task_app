@@ -14,7 +14,7 @@ const googleSignIn = () => {
   return (
     <div className='SignIn'>
         <h1>
-            Faça login para acessar as coisas
+            Faça login com a sua conta do Google
         </h1>
         <button
         onClick={googleSignIn}

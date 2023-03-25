@@ -13,8 +13,6 @@ async function uploadCard(card) {
     card: {
       title: card.title,
       description: card.description,
-      // date0: card.date0,
-      // date1: card.date1,
       _date0: card._date0,
       _date1: card._date1
     },
@@ -106,18 +104,15 @@ export default function CreateNewCard({setFase}) {
     if (result === 'ok') {
       console.log("title: ",title);
       console.log("description: ",description);
-      // console.log("date0: ",date0);
       console.log("Timestamp _date0: ",Timestamp.fromDate(_date0));
-      // console.log("date1: ",date1);  
       console.log("Timestamp _date1: ",Timestamp.fromDate(_date1));  
       uploadCard(card).then(setFase("feed"))
-
-
     }else{
       alert(result)
     }
-
-    
+  }
+  const cancel = () => {
+    setFase("feed")
   }
 
   return (
@@ -162,7 +157,10 @@ export default function CreateNewCard({setFase}) {
                 />
             </label>
         </form>
-        <button onClick={handleSubmit}>Criar card</button>
+        <div className='buttons'>
+          <button onClick={handleSubmit}>Criar card</button>
+          <button onClick={cancel}>Cancelar</button>
+        </div>
     </div>
   )
 }

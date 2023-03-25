@@ -13,7 +13,7 @@ input[type="date"]::-webkit-input-placeholder{
     form{
         padding: 20px;
         width: 100%;
-        background-color: rgb(114, 111, 147);
+        background-color: rgba(114, 111, 147, 0.58);
         label{
             display: flex;
             flex-direction: column;
@@ -40,6 +40,19 @@ input[type="date"]::-webkit-input-placeholder{
             p{
                 font-size: 17px;
             }
+        }
+    }
+    .buttons{
+        display: flex;
+        gap: 20px;
+        height: 60px;
+        margin: 20px;
+        button{
+            border-radius: 10px;
+            padding: 10px;
+            font-family: "Google Sans",sans-serif;
+            font-weight: 600;
+            font-size: 20px;
         }
     }
 }
