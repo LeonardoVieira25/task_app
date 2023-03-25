@@ -8,6 +8,8 @@ import { db, auth } from "./firebase";
 
 async function uploadCard(card) {
   // var myTimestamp = firebase.firestore.Timestamp.fromDate(new Date());
+ 
+  
   const newCardRef = doc(collection(db, auth.currentUser.uid));
   await setDoc(newCardRef, {
     card: {

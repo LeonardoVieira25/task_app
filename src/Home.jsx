@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Home.scss'
 import Feed from './Feed';
 import CreateNewCard from './CreateNewCard';
+import EditCard from './EditCard';
 
 
 
@@ -16,7 +17,9 @@ export default function Home( {signOut} ) {
       </div>
       {fase == "feed" && 
       <>
-        <Feed />  
+        <Feed
+        setFase={setFase}
+        />  
         <button className='newCard'
           onClick={()=>setFase('newCard')}
           >
@@ -28,6 +31,14 @@ export default function Home( {signOut} ) {
         <>
           <CreateNewCard 
           setFase={setFase}
+          />
+        </>
+      }
+      {fase.split('/')[0] == "editCard" && 
+        <>
+          <EditCard
+          setFase={setFase}
+          id={fase.split('/')[1]}
           />
         </>
       }

@@ -1,0 +1,58 @@
+input::-webkit-calendar-picker-indicator{
+    display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder{ 
+    visibility: hidden !important;
+}
+.EditCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    form{
+        padding: 20px;
+        width: 100%;
+        background-color: rgba(114, 111, 147, 0.58);
+        label{
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+
+            margin: 15px 0;
+            input{
+                font-size: 20px;
+                width: 90%;
+                margin: 10px 0;
+                padding: 10px;
+            }
+            .title{
+                height: 40px;
+            }
+            .description{
+                height: 100px;
+                width: 90%;
+                resize: none;
+                padding: 10px;
+                margin: 10px 0;
+                font-size: 20px;
+            }
+            p{
+                font-size: 17px;
+            }
+        }
+    }
+    .buttons{
+        display: flex;
+        gap: 20px;
+        height: 60px;
+        margin: 20px;
+        button{
+            border-radius: 10px;
+            padding: 10px;
+            font-family: "Google Sans",sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+        }
+    }
+}

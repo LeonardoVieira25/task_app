@@ -2,10 +2,11 @@ import React from 'react'
 import './TaskCard.scss'
 // import { Timestamp } from 'firebase/firestore';
 
-export default function TaskCard({ title, description, _date0, _date1 }) {
+export default function TaskCard({ title, description, _date0, _date1, id, setFase }) {
     let curDate = new Date()
     let ratio = (Math.round((curDate-_date0)/(1000 * 60 * 60 * 24))   /  (Math.round((_date1-_date0)/(1000 * 60 * 60 * 24))+1) )
-    
+    // console.log("meu titulo é ", title)
+    // console.log("meu id é ", id)
     // console.log("dias restantes do "+ title)
     // console.log(Math.round( (curDate-_date0)/(1000 * 60 * 60 * 24)))
     // console.log("/")
@@ -13,7 +14,12 @@ export default function TaskCard({ title, description, _date0, _date1 }) {
     // console.log("=")
     // console.log(ratio)
     return (
-        <button className='task'>
+        <button className='task'
+        onClick={() =>  {setFase("editCard/"+id)
+        console.log(id)        
+    }
+}
+        >
             <h2>{title}</h2>
             {description !== null && description !== '' &&
                 <p className='description'>
