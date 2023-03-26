@@ -1,4 +1,3 @@
-import { async } from '@firebase/util'
 import { collection, doc, setDoc, Timestamp } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import './CreateNewCard.scss'
@@ -6,10 +5,7 @@ import './CreateNewCard.scss'
 
 import { db, auth } from "./firebase";
 
-async function uploadCard(card) {
-  // var myTimestamp = firebase.firestore.Timestamp.fromDate(new Date());
- 
-  
+async function uploadCard(card) {  
   const newCardRef = doc(collection(db, auth.currentUser.uid));
   await setDoc(newCardRef, {
     card: {

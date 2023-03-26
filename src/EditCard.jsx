@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, Timestamp, getDocs, query, where, getDoc, deleteDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore';
 
 import React, { useEffect, useState } from 'react'
 import './EditCard.scss'
@@ -7,8 +7,8 @@ import './EditCard.scss'
 import { db, auth } from "./firebase";
 
 async function uploadCard(card) {
-    console.log(card.id)
-    console.log(auth.currentUser.uid)
+    // console.log(card.id)
+    // console.log(auth.currentUser.uid)
     const cardRef = doc(db, auth.currentUser.uid, card.id);
     await setDoc(cardRef, {
     card: {
@@ -45,7 +45,7 @@ export default function EditCard({setFase, id}) {
     const [_date0,_setDate0] = useState(new Date())
     const [_date1,_setDate1] = useState(new Date())
     
-    useEffect(() => {  
+    useEffect(() => {
         getCard(id).then((card) => {
             setTitle(card.title)
             setDescription(card.description)
@@ -53,11 +53,8 @@ export default function EditCard({setFase, id}) {
             _setDate0(card._date0.toDate())
             setDate0(`${card._date0.toDate().getFullYear()}-${card._date0.toDate().getMonth()+1<10&&'0'}${card._date0.toDate().getMonth()+1}-${card._date0.toDate().getDate()}`)
                 
-                
-                
             _setDate1(card._date1.toDate())
             setDate1(`${card._date1.toDate().getFullYear()}-${card._date1.toDate().getMonth()+1<10&&'0'}${card._date1.toDate().getMonth()+1}-${card._date1.toDate().getDate()}`)
-            
             
             })
     },[])
@@ -126,6 +123,7 @@ export default function EditCard({setFase, id}) {
         const result = testData(card)
         if (result === 'ok') {
             uploadCard(card).then(setFase("feed"))
+            document.location.reload(true)
         }else{
             alert(result)
         }

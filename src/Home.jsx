@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Home.scss'
 import Feed from './Feed';
 import CreateNewCard from './CreateNewCard';
@@ -17,7 +17,7 @@ export default function Home( {signOut} ) {
         </button>
       </div>
       
-      {fase == "feed" && <>
+      {fase === "feed" && <>
         <Feed
         setFase={setFase}
         />  
@@ -28,13 +28,13 @@ export default function Home( {signOut} ) {
         </button>
       </>}
 
-      {fase == "newCard" && <>
+      {fase === "newCard" && <>
         <CreateNewCard 
         setFase={setFase}
         />
       </>}
 
-      {fase.split('/')[0] == "editCard" && <>
+      {fase.split('/')[0] === "editCard" && <>
         <EditCard
         setFase={setFase}
         id={fase.split('/')[1]}
