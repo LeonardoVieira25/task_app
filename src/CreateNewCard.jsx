@@ -160,8 +160,8 @@ export default function CreateNewCard({setFase}) {
             </label>
         </form>
         <div className='buttons'>
-          <button onClick={handleSubmit}>Criar card</button>
           <button onClick={cancel}>Cancelar</button>
+          <button onClick={handleSubmit}>Criar card</button>
         </div>
     </div>
   )

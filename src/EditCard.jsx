@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, Timestamp, getDocs, query, where, getDoc } from 'firebase/firestore';
+import { collection, doc, setDoc, Timestamp, getDocs, query, where, getDoc, deleteDoc } from 'firebase/firestore';
 
 import React, { useEffect, useState } from 'react'
 import './EditCard.scss'
@@ -23,14 +23,11 @@ async function uploadCard(card) {
 }
 
 async function getCard(id) {
-    console.log(id)
+    // console.log(id)
     const docRef = doc(db, auth.currentUser.uid, id);
     const docSnap = await getDoc(docRef);
-    
-    let data = docSnap.data().card
-
-    console.log("pegou data unica")
-    return data
+    // let data = docSnap.data().card
+    return docSnap.data().card
 }
 
 
@@ -119,26 +116,26 @@ export default function EditCard({setFase, id}) {
 
     const handleSubmit = () => {
         const card = {
-        title: title,
-        description: description,
-        _date0: _date0,
-        _date1: _date1,
-        id: id
+            title: title,
+            description: description,
+            _date0: _date0,
+            _date1: _date1,
+            id: id
         }
 
         const result = testData(card)
         if (result === 'ok') {
-        console.log("title: ",title);
-        console.log("description: ",description);
-        console.log("Timestamp _date0: ",Timestamp.fromDate(_date0));
-        console.log("Timestamp _date1: ",Timestamp.fromDate(_date1));  
-        uploadCard(card).then(setFase("feed"))
+            uploadCard(card).then(setFase("feed"))
         }else{
-        alert(result)
+            alert(result)
         }
     }
     const cancel = () => {
         setFase("feed")
+    }
+    const deleteCard = () => {
+        deleteDoc(doc(db, auth.currentUser.uid, id)).then(setFase("feed"))
+        document.location.reload(true)
     }
 
     return (
@@ -184,9 +181,12 @@ export default function EditCard({setFase, id}) {
                 </label>
             </form>
             <div className='buttons'>
-            <button onClick={handleSubmit}>Salvar alteração</button>
-            <button onClick={cancel}>Cancelar</button>
+                <button onClick={cancel}>Cancelar</button>
+                <button onClick={handleSubmit}>Salvar alteração</button>
             </div>
+            <button className='delete' onClick={deleteCard}>
+                Deletar card
+            </button>
         </div>
     )
 }

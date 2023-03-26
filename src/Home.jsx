@@ -10,13 +10,14 @@ export default function Home( {signOut} ) {
   const [fase,setFase] = useState("feed")
   return ( 
     <div className='Home'>
+
       <div className='header'>
         <button onClick={signOut} className="sign-out" type="button">
           sair
         </button>
       </div>
-      {fase == "feed" && 
-      <>
+      
+      {fase == "feed" && <>
         <Feed
         setFase={setFase}
         />  
@@ -25,23 +26,21 @@ export default function Home( {signOut} ) {
           >
           +
         </button>
-      </>
-      }
-      {fase == "newCard" && 
-        <>
-          <CreateNewCard 
-          setFase={setFase}
-          />
-        </>
-      }
-      {fase.split('/')[0] == "editCard" && 
-        <>
-          <EditCard
-          setFase={setFase}
-          id={fase.split('/')[1]}
-          />
-        </>
-      }
+      </>}
+
+      {fase == "newCard" && <>
+        <CreateNewCard 
+        setFase={setFase}
+        />
+      </>}
+
+      {fase.split('/')[0] == "editCard" && <>
+        <EditCard
+        setFase={setFase}
+        id={fase.split('/')[1]}
+        />
+      </>}
+
 
     </div>
   )

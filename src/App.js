@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import SignIn from './SignIn';
 import { useState } from 'react';
 
@@ -12,22 +12,34 @@ function App() {
   function signOut (){
     auth.signOut();
   }
+
+  const [loading, setLoading] = useState(true)
+
+  auth.onAuthStateChanged((user)=>{
+    setLoading(false)
+  })
   return (
     <div className="App">
-      {user ? (
-        <>
-          <Home
-          signOut={signOut}
-          />
-        </>
-      ) : (
-        <>
-          <h1>Bem vindo</h1>
-          <SignIn 
-            user = {user}
-          />
-        </>
-      )}
+      {!loading?
+        user ? (
+          <>
+            <Home
+            signOut={signOut}
+            />
+          </>
+        ) : (
+          <div className='land'>
+            <h1>TaskTracker</h1>
+            <SignIn 
+              user = {user}
+            />
+          </div>
+        )
+      :<div className='loading'>
+        <h1>
+          carregando...
+        </h1>
+      </div>}
       
     </div>
   );

@@ -3,7 +3,7 @@ import TaskCard from './TaskCard'
 import './Feed.scss'
 
 import { db, auth } from "./firebase";
-import { collection, getDocs, query, where, Timestamp } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 
 
@@ -14,18 +14,19 @@ async function getCards() {
     querySnapshot.forEach((doc) => {
         let data = doc.data().card
         data.id = doc.id;
-        // console.log(data.title)
-        // console.log(data.id)
         result.push(data)
     });
-    console.log("pegou data")
     return result
 }
+
+
 export default function Feed({ setFase }) {
     const [cards, setCards] = useState([])
+    
     useEffect(()=>{
       getCards().then((data) => setCards(data))
     },[])
+
     return (
         <div className='Feed'>
             {cards.map((data,i)=>
