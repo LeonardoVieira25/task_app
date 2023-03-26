@@ -132,8 +132,10 @@ export default function EditCard({setFase, id}) {
         setFase("feed")
     }
     const deleteCard = () => {
-        deleteDoc(doc(db, auth.currentUser.uid, id)).then(setFase("feed"))
-        document.location.reload(true)
+        deleteDoc(doc(db, auth.currentUser.uid, id)).then(() =>{
+            setFase("feed")
+            document.location.reload(true)
+        })
     }
 
     return (
