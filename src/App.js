@@ -13,11 +13,11 @@ function App() {
     auth.signOut();
   }
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  auth.onAuthStateChanged((user)=>{
-    setLoading(false)
-  })
+  // auth.onAuthStateChanged(()=>{
+  //   setLoading(false)
+  // })
   return (
     <div className="App">
       {!loading?
